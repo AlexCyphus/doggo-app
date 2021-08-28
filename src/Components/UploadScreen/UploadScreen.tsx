@@ -51,10 +51,14 @@ const UploadScreen: React.FC = () => {
           // we would probably also pass the dog's name here
         }
         
-        const response = await axios.post(ENDPOINT, filePayload)
+        let response;
 
-        if (response.status === 201){ setSubmissionStatus("success") }
-        else { setSubmissionStatus("failure") }
+        try {
+          response = await axios.post(ENDPOINT, filePayload);
+          if (response.status === 201){ setSubmissionStatus("success") }
+        } catch(err) {
+          setSubmissionStatus("failure")
+        }
       }
     }
 
