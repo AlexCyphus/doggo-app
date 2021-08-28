@@ -36,7 +36,7 @@ const rejectStyle = {
 
 const Dropzone: React.FC<IDropzone> = ({text, onDropFunction}) => {
 
-  const onDrop = useCallback(onDropFunction, [])
+  const onDrop = useCallback(onDropFunction, [onDropFunction])
 
   const {
     getRootProps,

@@ -16,9 +16,7 @@
                 border-radius: 5%;
                 border: 4px lightblue solid;
             }
-            .UploadScreen-dogOfTheMonth-name {
-                font-style: italic;
-            }
+            .UploadScreen-dogOfTheMonth-name { font-style: italic; }
         }
         .UploadScreen-newSubmission {
             margin: 15px 0;
@@ -28,9 +26,7 @@
                 justify-content: center;
                 padding: 15px 0 8px 0;
                 cursor: pointer;
-                p {
-                    margin: 0;
-                }
+                p { margin: 0; }
             }
             .UploadScreen-newSubmission-submitButton {
                 border: none;
@@ -57,9 +53,7 @@
                     background-color: #444444;
                 }
             }
-            .UploadScreen-newSubmission-errorMessage {
-                color: red;
-            }
+            .UploadScreen-newSubmission-errorMessage { color: red; }
             .UploadScreen-newSubmission-image {
                 display: flex;
                 .UploadScreen-newSubmission-image-inner {

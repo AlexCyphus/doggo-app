@@ -85,11 +85,11 @@ const UploadScreen: React.FC = () => {
             />
             <p className="UploadScreen-dogOfTheMonth-name">Fredrick the Anxious</p>
           </div>
-          {/* 3.	Add a dropzone component where you can upload a file. */}
           <div className="UploadScreen-newSubmission">
             <h2>Think your dog is cuter?</h2>
             <p>Submit an image to be considered for the next dog of the month!</p>
-            {!uploadedFile && <>
+            {/* if no successfully previewed image show the dropzone and potentially error messages */}
+            {!imagePreview && <>
               <div className="UploadScreen-newSubmission-dropzoneContainer">
                 <Dropzone 
                   text={"Upload your fav picture of your dog 🐶"}
@@ -102,6 +102,8 @@ const UploadScreen: React.FC = () => {
               }
             </>
             }
+
+            {/* if available image to preview show preview + remove photo button + possible submission messages*/}
             {imagePreview && 
             <>
               <div className="UploadScreen-newSubmission-image">
@@ -114,6 +116,8 @@ const UploadScreen: React.FC = () => {
                   }
                 </div>
               </div>
+
+              {/* if file not yet submitted ask for the dog's name */}
               {submissionStatus !== "success" && <div className="UploadScreen-newSubmission-name">
                 <p>Cute 🥰</p>
                 <input 
@@ -128,8 +132,12 @@ const UploadScreen: React.FC = () => {
               }
             </>
             }
+            
+            {/* if the photo isn't submitted yet give the option to upload it */}
             {submissionStatus !== "success" && <button disabled={!uploadedFile} onClick={submitFile} className="UploadScreen-newSubmission-submitButton">SUBMIT</button>}
             <p className="disclaimer">* Disclaimer: Any photos submitted become the full intellectual property of Cute Doggo LLC</p>
+            
+            {/* display the status of the photo upload */}
             {submissionStatus === "success"
               ? <p>{dogName ? `${dogName}'s pic was successfully submitted!` : "Picture successfully submitted!"}</p>
               : submissionStatus === "failure"
