@@ -4,6 +4,7 @@ p, h1, h2, input, ::placeholder {
   font-family: 'Noto Sans JP', sans-serif;
   margin: 0 0 8px 0;
   color: white;
+  word-wrap: break-word;
 }
 
 p, input, ::placeholder, button { font-size: 15px; }

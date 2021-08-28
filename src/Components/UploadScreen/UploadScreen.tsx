@@ -53,6 +53,7 @@ const UploadScreen: React.FC = () => {
         
         let response;
 
+        // make sure file is uploaded successfully otherwise throw an error
         try {
           response = await axios.post(ENDPOINT, filePayload);
           if (response.status === 201){ setSubmissionStatus("success") }
@@ -92,6 +93,7 @@ const UploadScreen: React.FC = () => {
           <div className="UploadScreen-newSubmission">
             <h2>Think your dog is cuter?</h2>
             <p>Submit an image to be considered for the next dog of the month!</p>
+            
             {/* if no successfully previewed image show the dropzone and potentially error messages */}
             {!imagePreview && <>
               <div className="UploadScreen-newSubmission-dropzoneContainer">
@@ -143,10 +145,10 @@ const UploadScreen: React.FC = () => {
             
             {/* display the status of the photo upload */}
             {submissionStatus === "success"
-              ? <p>{dogName ? `${dogName}'s pic was successfully submitted!` : "Picture successfully submitted!"}</p>
+              ? <p className="UploadScreen-newSubmission-submissionStatus">{dogName ? `${dogName}'s pic was successfully submitted!` : "Picture successfully submitted!"}</p>
               : submissionStatus === "failure"
-                ? <p>Oops! Something went wrong. Please try again</p>
-                : <p>{submissionStatus}</p>
+                ? <p className="UploadScreen-newSubmission-submissionStatus">Oops! Something went wrong. Please try again</p>
+                : <p className="UploadScreen-newSubmission-submissionStatus">{submissionStatus}</p>
             }
           </div>
         </div>
