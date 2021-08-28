@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import FullscreenLoader from './Components/FullscreenLoader/FullscreenLoader';
+import "./App.scss"
+import UploadScreen from './Components/UploadScreen/UploadScreen';
 
-function App() {
+// 5.	Feel free to add any additional features of your choice. For example dark mode, responsiveness, a cool file preview, etc. 
+
+const App = () => {
+
+  const [showLoader, setUseLoader] = useState(true)
+
+  // wait two seconds before showing the page
+  setTimeout(() => setUseLoader(false), 2000)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {showLoader
+        ? <FullscreenLoader/>
+        : <UploadScreen/>
+      } 
     </div>
-  );
+  )
 }
 
 export default App;
+

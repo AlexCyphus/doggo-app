@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap');
+
+p, h1, h2, input, ::placeholder {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 0 0 8px 0;
+  color: white;
+}
+
+p, input, ::placeholder, button {
+  font-size: 15px;
+}
+
+.App {
+  background-color: #262626;
+  text-align: center;
+  width: 100vw;
+  height: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.disclaimer {
+  font-size: 8px;
+  font-style: italic;
+}
