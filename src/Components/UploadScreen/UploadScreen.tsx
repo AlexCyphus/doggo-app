@@ -24,6 +24,7 @@ const UploadScreen: React.FC = () => {
       else if (!acceptedImageTypes.includes(files[0].type)) { setErrorMessage("Please only submit gifs, jpgs, or pngs") }
     
       // else read and show a preview of the file
+      // we would also catch any FileReader errors in a production version (like a corrupted image) and display them to the user
       else { 
         const reader = new FileReader();
         reader.onload = () => typeof reader.result === 'string' && setImagePreview(reader.result);
@@ -37,6 +38,7 @@ const UploadScreen: React.FC = () => {
       setSubmissionStatus("Uploading...")
       const ENDPOINT = "https://jsonplaceholder.typicode.com/posts"
 
+      // convert file to Base64 and return promise
       const toBase64 = (file: File) => new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
